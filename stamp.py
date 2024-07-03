@@ -15,6 +15,7 @@ signer_name = 'Pengbo' # 签章人姓名
 url = 'https://pengs.top' # 主页地址
 email = 'peng@pengs.top' # 邮箱地址
 extra_info = 'GPG fingerprint: \n6B5314F24B17198DD24B\n5B47062C2BFFBDCBB303\n' # 另外的想打印的信息
+font_location = '/home/micraow/.local/Rajdhani-Medium.ttf' # 字体位置
 
 signer = signers.SimpleSigner.load_pkcs12(
     pfx_file=pfx, passphrase=passwd
@@ -58,8 +59,7 @@ with open(in_file, 'rb') as inf:
             stamp_text='Signed by: %(signer)s\nEmail: %(email)s\nTime: %(ts)s\nURL: '+ url + \
             '\nUUID: \n%(uuid)s\n' + extra_info,
             text_box_style=text.TextBoxStyle(
-                font=opentype.GlyphAccumulatorFactory(
-                    '/home/micraow/.local/Rajdhani-Medium.ttf')  # 字体位置
+                font=opentype.GlyphAccumulatorFactory(font_location)  # 字体位置
             ),
         ),
     )
