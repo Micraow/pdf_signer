@@ -25,6 +25,9 @@ openssl x509 -in myself.csr -out myself.crt -req -signkey myself.key -days 365
 ```
 openssl pkcs12 -export -out myself.pfx -inkey myself.key -in myself.crt
 ```
+
+针对stamp.py开头的信息以及字体位置进行修改。
+
 ```
 python stamp.py
 ```
